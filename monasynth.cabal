@@ -1,0 +1,118 @@
+cabal-version:      3.0
+name:               monasynth
+version:            0.1.0.0
+-- synopsis:
+-- description:
+license:            MIT
+license-file:       LICENSE
+author:             Jaime De la Cal
+maintainer:         info@soundtribe.ch
+-- copyright:
+category:           Development
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+common warnings
+    ghc-options: -Wall -Wno-unused-imports 
+    -- for keeping llvm-ir files
+    -- -fllvm -keep-llvm-files
+
+library
+    import:           warnings
+    exposed-modules:  
+        MonaSynthLib,
+        MonaSynthLib.Generators,
+        MonaSynthLib.Filters,
+        MonaSynthLib.Mixers,
+        MonaSynthLib.Play,
+        MonaSynthLib.Notes,
+        MonaSynthLib.Multithreading
+
+
+    build-depends:
+        base (>=3 && <5),
+        haskell-say ^>= 1.0.0.0,
+        llvm-ffi ^>= 16.0,
+        enumset ^>=0.0.5 && <0.2,
+        llvm-tf,
+        synthesizer-llvm,
+        synthesizer-core,
+        llvm-dsl,
+        llvm-extra,
+        llvm-tf,
+        tfp,
+        sox,
+        storablevector,
+        numeric-prelude,
+        non-negative,
+        event-list,
+        random,
+        non-empty,
+        utility-ht,
+        pathtype,
+        unsafe,
+        async >= 2.2,
+        haskeline >= 0.8,
+        containers,
+        wave,
+        bytestring    
+
+    hs-source-dirs:   app
+    --default-extensions:
+
+    default-language: Haskell2010    
+
+
+executable monasynth
+    import:           warnings
+    main-is:          MonaSynthLib.hs
+    --MonaSynthEDSL.hs
+    -- SimpleSineGPT.hs
+    --JaimesTestSynthMultiThreaded.hs
+    --JaimesTestSynthLazyVectorizedChannels.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:   
+      base (>=3 && <5),
+      haskell-say ^>= 1.0.0.0,
+      llvm-ffi ^>= 16.0,
+      enumset ^>=0.0.5 && <0.2,
+      llvm-tf,
+      synthesizer-llvm,
+      synthesizer-core,
+      llvm-dsl,
+      llvm-extra,
+      llvm-tf,
+      tfp,
+      sox,
+      storablevector,
+      numeric-prelude,
+      non-negative,
+      event-list,
+      random,
+      non-empty,
+      utility-ht,
+      pathtype,
+      unsafe,
+      async >= 2.2,
+      haskeline >= 0.8,
+      containers,
+      wave,
+      bytestring
+
+    other-modules: 
+      Generators
+      Notes
+      Filters
+      Play
+      Mixers
+      Multithreading     
+      
+    extra-lib-dirs:      /usr/lib64/llvm14/lib
+
+
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+
+

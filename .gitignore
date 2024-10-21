@@ -1,0 +1,4 @@
+cabal.project.local
+app/MonaLLVsa.hs
+dist-newstyle
+LICENSE
