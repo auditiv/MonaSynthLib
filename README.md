@@ -2,7 +2,7 @@
 
 This file outlines the structure of your `MonaSynthLib` library, including the key modules, usage examples, and project setup.
 
-Project Structure:
+## Project Structure:
 
 app/ │ └─ MonaSynthLib/ ├── Generators.hs ├── Filter.hs ├── Notes.hs ├── Play.hs ├── Mixers.hs ├── Multithreading.hs
 └── MonaSynthLib.hs
