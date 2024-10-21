@@ -3,21 +3,11 @@
 This file outlines the structure of your `MonaSynthLib` library, including the key modules, usage examples, and project setup.
 
 Project Structure:
-app/
-│
-└─ MonaSynthLib/
-    │
-    │
-    │
-    ├── Generators.hs
-    ├── Filter.hs
-    ├── Notes.hs
-    ├── Play.hs
-    ├── Mixers.hs
-    ├─── Multithreading.hs    │   
-    │
-    └── MonaSynthLib.hs
- The last File imports all the Modules int the Dir MonaSynthLib.
+
+app/ │ └─ MonaSynthLib/ ├── Generators.hs ├── Filter.hs ├── Notes.hs ├── Play.hs ├── Mixers.hs ├── Multithreading.hs
+└── MonaSynthLib.hs
+
+ The last File imports all modules int the dir: `MonaSynthLib`.
 
 ## Dependencies
 
