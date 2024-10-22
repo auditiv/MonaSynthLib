@@ -159,5 +159,5 @@ concatenateASRSignals attack release = (Causal.take attack $* (1-Sig.exponential
 
 createASREnv :: Sig.MV Float -- 1s + 2 ms = 52300 samples
 createASREnv = Causal.take 108200 $* (Causal.envelope $< 
-                 (1 - Sig.exponential2 1000 1) $* (Causal.take 108200 $* (Sig.exponential2 5000 1)))
+                 (1 - Sig.exponential2 1000 1) $* (Causal.take 108200 $* (Sig.exponential2 7000 1)))
 

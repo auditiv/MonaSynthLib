@@ -151,11 +151,11 @@ causalMonoEnvAtack signal = Causal.envelope $< (1 - Sig.exponential2 5000 1) $* 
 
 -- simple filter: -------------------------------------------------------------------------------------
 -- cutoff-frequency : [0,1]
-simpleMonoHPF :: Sig.MV Float -> Exp Float -> Sig.MV Float
-simpleMonoHPF sig cut = Filter.highpassCausal $< fmap Filt1Core.Parameter (autoConst cut) $* sig
+simpleMonoHPF ::  Exp Float -> Sig.MV Float -> Sig.MV Float
+simpleMonoHPF cut sig = Filter.highpassCausal $< fmap Filt1Core.Parameter (autoConst cut) $* sig
 
-simpleMonoLPF :: Sig.MV Float -> Exp Float-> Sig.MV Float
-simpleMonoLPF sig cut = Filter.lowpassCausal $< fmap Filt1Core.Parameter (autoConst cut) $* sig
+simpleMonoLPF :: Exp Float -> Sig.MV Float-> Sig.MV Float
+simpleMonoLPF cut sig = Filter.lowpassCausal $< fmap Filt1Core.Parameter (autoConst cut) $* sig
 
 
 -- with automation:

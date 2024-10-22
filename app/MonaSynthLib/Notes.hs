@@ -158,14 +158,14 @@ int2ExpIn a = constantExp (NiceValue.fromInteger' a)
 -- Frequencies (in Hz) from your image (columns representing octaves 4 and 5)
 frequencies :: [(Note, Rational)] --3 octaves
 frequencies = [ ("P",  1 :: Rational), ("C3",  13.081 :: Rational), ("C#3",  13.859 :: Rational), ("D3",   14.683 :: Rational), ("D#3",  15.556 :: Rational),
-                ("E3", 16.481 :: Rational), ("F3",  17.461 :: Rational), ("F#3",  18.499 :: Rational), ("G3",  19.600 :: Rational),
-                ("G#3",  20.765 :: Rational), ("A3",  22.000 :: Rational), ("A#3",  23.308 :: Rational), ("B3",  24.694 :: Rational),
-                ("C4",  26.163 :: Rational), ("C#4", 27.718 :: Rational), ("D4",   29.366 :: Rational), ("D#4", 31.113 :: Rational ),
-                ("E4",  32.963 :: Rational), ("F4",  34.923 :: Rational), ("F#4",  36.999 :: Rational), ("G4",  39.200 :: Rational  ),
-                ("G#4", 41.530 :: Rational), ("A4",  44.000 :: Rational), ("A#4",  46.616 :: Rational), ("B4",  49.388 :: Rational  ),
-                ("C5",  52.325 :: Rational), ("C#5", 55.437 :: Rational), ("D5",   58.733 :: Rational), ("D#5", 62.225 :: Rational ),
-                ("E5",  65.925 :: Rational), ("F5",  69.846 :: Rational), ("F#5",  73.999 :: Rational), ("G5",  78.399 :: Rational ),
-                ("G#5", 83.061 :: Rational), ("A5",  88.000 :: Rational), ("A#5",  93.233 :: Rational), ("B5",  98.777 :: Rational ) ] 
+                ("E3",  164.81 :: Rational), ("F3",  174.61 :: Rational), ("F#3",  184.99 :: Rational), ("G3",  196.00 :: Rational),
+                ("G#3", 207.65 :: Rational), ("A3",  220.00 :: Rational), ("A#3",  233.08 :: Rational), ("B3",  246.94 :: Rational),
+                ("C4",  261.63 :: Rational), ("C#4", 277.18 :: Rational), ("D4",   293.66 :: Rational), ("D#4", 311.13 :: Rational ),
+                ("E4",  329.63 :: Rational), ("F4",  349.23 :: Rational), ("F#4",  369.99 :: Rational), ("G4",  392.00 :: Rational  ),
+                ("G#4", 415.30 :: Rational), ("A4",  440.00 :: Rational), ("A#4",  466.16 :: Rational), ("B4",  493.88 :: Rational  ),
+                ("C5",  523.25 :: Rational), ("C#5", 554.37 :: Rational), ("D5",   587.33 :: Rational), ("D#5", 622.25 :: Rational ),
+                ("E5",  659.25 :: Rational), ("F5",  698.46 :: Rational), ("F#5",  739.99 :: Rational), ("G5",  783.99 :: Rational ),
+                ("G#5", 830.61 :: Rational), ("A5",  880.00 :: Rational), ("A#5",  932.33 :: Rational), ("B5",  987.77 :: Rational ) ] 
 
 -- Function to calculate period length for a given frequency
 periodLength :: (Rational) -> Rational

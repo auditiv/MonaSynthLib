@@ -61,30 +61,5 @@ import Codec.Audio.Wave as Wav
 import GHC.Word (Word32)
 
 
---playMono (Causal.take 30000 $*( NonEmpty.foldBalanced (+) $ fmap (\f -> Sig.osci Wave.sine 0.0 (0.01*f)) $ 1.0!: 1.5 : 1.10 :  []))
-seq :: IO()
-seq = playMono (Causal.take 22050 $* (monoGen Sine) (play c)<>
-                 (Causal.take 22050 $* (monoGen Sine) (play d)) <>
-                 (Causal.take 22050 $* (monoGen Sine) (play c)) <>
-                 (Causal.take 22050 $* (monoGen Sine) (play dis)))
-
-
-----------------------------------------------------------------------------------
-
-playChord8osci:: IO ()
-playChord8osci =
-    playMono $
-        (Causal.amplify 0.1 $* (mixChord Sine [0.01 :: Exp Float, 0.2 :: Exp Float]) )
-
-
-test :: IO ()
-test = do
-    LLVM.initializeNativeTarget
-    -- Start the filter sweep in a separate thread
-    bkgTask <- async $ playStereo(stereoGenSaw 0.001)
-    -- Run the input listener in the main thread
-    userInput bkgTask
-    putStrLn "Async task completed."
-
 
 

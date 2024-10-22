@@ -101,12 +101,12 @@ executable monasynth
       bytestring
 
     other-modules: 
-      Generators
-      Notes
-      Filters
-      Play
-      Mixers
-      Multithreading     
+      MonaSynthLib.Generators
+      MonaSynthLib.Notes
+      MonaSynthLib.Filters
+      MonaSynthLib.Play
+      MonaSynthLib.Mixers
+      MonaSynthLib.Multithreading     
       
     extra-lib-dirs:      /usr/lib64/llvm14/lib
 
@@ -115,4 +115,85 @@ executable monasynth
     default-language: Haskell2010
 
 
+executable monallvsa
+    import:           warnings
+    main-is:          monallvsa.hs
+    build-depends:
+        base >=4.17.0.0,
+        monasynth,
+        base (>=3 && <5),
+        haskell-say ^>= 1.0.0.0,
+        llvm-ffi ^>= 16.0,
+        enumset ^>=0.0.5 && <0.2,
+        llvm-tf,
+        synthesizer-llvm,
+        synthesizer-core,
+        llvm-dsl,
+        llvm-extra,
+        llvm-tf,
+        tfp,
+        sox,
+        storablevector,
+        numeric-prelude,
+        non-negative,
+        event-list,
+        random,
+        non-empty,
+        utility-ht,
+        pathtype,
+        unsafe,
+        async >= 2.2,
+        haskeline >= 0.8,
+        containers,
+        wave,
+        bytestring
+    
+    hs-source-dirs:   MonaLLVSA
+    default-language: Haskell2010
+    -- ghc-options: 
+
+
+executable monasynthtest
+    import:           warnings
+    main-is:          MonaSynthTest.hs
+    --MonaSynthEDSL.hs
+    -- SimpleSineGPT.hs
+    --JaimesTestSynthMultiThreaded.hs
+    --JaimesTestSynthLazyVectorizedChannels.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:   
+      base (>=3 && <5),
+      monasynth,
+      haskell-say ^>= 1.0.0.0,
+      llvm-ffi ^>= 16.0,
+      enumset ^>=0.0.5 && <0.2,
+      llvm-tf,
+      synthesizer-llvm,
+      synthesizer-core,
+      llvm-dsl,
+      llvm-extra,
+      llvm-tf,
+      tfp,
+      sox,
+      storablevector,
+      numeric-prelude,
+      non-negative,
+      event-list,
+      random,
+      non-empty,
+      utility-ht,
+      pathtype,
+      unsafe,
+      async >= 2.2,
+      haskeline >= 0.8,
+      containers,
+      wave,
+      bytestring     
+      
+    extra-lib-dirs:      /usr/lib64/llvm14/lib
+
+
+    hs-source-dirs:   MonaSynthTest
+    default-language: Haskell2010
 

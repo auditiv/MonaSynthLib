@@ -4,10 +4,19 @@ This file outlines the structure of your `MonaSynthLib` library, including the k
 
 ## Project Structure:
 
-app/ │ └─ MonaSynthLib/ ├── Generators.hs ├── Filter.hs ├── Notes.hs ├── Play.hs ├── Mixers.hs ├── Multithreading.hs
-└── MonaSynthLib.hs
+app/
+  MonaSynthLib/
+    Generators.hs
+    Play.hs
+    Notes.hs
+    Filters.hs
+    Mixers.hs
+    Sampling.hs
+    Multithreading.hs
+  MonaSynthLib.hs
 
- The last File imports all modules int the dir: `MonaSynthLib`.
+
+ The last File imports all modules in the dir: `MonaSynthLib`.
 
 ## Dependencies
 
@@ -35,5 +44,12 @@ MonaSynthLib relies on the following external libraries:
 
 
 Enjoy exploring and creating sounds with MonaSynthLib!
+
+# MonaLLVsa
+This is a functional reactive programming framework that works inside the `cabal v2-repl` 
+
+It provides a thread map for inserting generators inside of it
+and outpurring sound simulataneously. Bellow a little session is provided on how it works.
+![Description of the image](howtomonallvsa.png)
 
 

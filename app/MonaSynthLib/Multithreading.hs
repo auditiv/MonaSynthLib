@@ -165,11 +165,10 @@ monoChordGenerator chanOut = do
 
    
 -- Filter: reads signal from the channel and apply processing defined in the given function
-
-filterEnv2LazyVecMono :: MVar Int-> (Sig.MV Float -> Sig.MV Float) -> Exp Float -> 
+filterEnv2LazyVecMono :: MVar Int-> (Sig.MV Float -> Sig.MV Float) -> 
                            (Sig.MV Float -> Sig.MV Float) -> Chan (Sig.MV Float) -> 
                              Chan (SVL.Vector Float) ->  IO ()
-filterEnv2LazyVecMono state attackenv attacktime fx chanIn chanOut  = do
+filterEnv2LazyVecMono state attackenv fx chanIn chanOut  = do
    let loop = do
 
         currState <- takeMVar state -- read current state
@@ -234,25 +233,21 @@ userInput asyncTask = do
             exitSuccess      -- Exit the program
         else userInput asyncTask-- Keep waiting for input
 
-------------------------- esperimental -------------------------------------------------------------------------------
+------------------------- experimental -------------------------------------------------------------------------------
 
 updateSound :: Async () -> IO ()
 updateSound asyncTask = do
     input <- getChar  -- Reads a single character from the user input
-    if input == 'R' then do
-        putStrLn "Quitting old thread; restarting sound"
-        -- Here you can restart a new task if needed, e.g., by calling `async`:
-        bkgTask <- async $ playStereo (stereoGenSaw 0.001)
-        -- But for now, we'll just quit.
-        cancel asyncTask  -- Cancel the old async task       
+    case input of                          
         
-    else if input == 'Q' then do
-        putStrLn "Quitting..."
-        cancel asyncTask  -- Cancel the async task if it's still running
-        exitSuccess       -- Exit the program
-    else do
-        putStrLn "Unknown command. Press 'R' to restart, 'Q' to quit."
-        userInput asyncTask  -- Loop again to wait for more input
+        'Q' -> do
+            putStrLn "Quitting..."
+            cancel asyncTask  -- Cancel the async task if it's still running
+            exitSuccess       -- Exit the program
+
+        _ -> do
+            putStrLn "Unknown command. Press 'Q' to quit."
+            userInput asyncTask  -- Loop again to wait for more input
 
 
 
