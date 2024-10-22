@@ -64,12 +64,9 @@ library
 
 
 executable monasynth
+    buildable: False
     import:           warnings
     main-is:          MonaSynthLib.hs
-    --MonaSynthEDSL.hs
-    -- SimpleSineGPT.hs
-    --JaimesTestSynthMultiThreaded.hs
-    --JaimesTestSynthLazyVectorizedChannels.hs
     -- other-modules:
     -- other-extensions:
     build-depends:   

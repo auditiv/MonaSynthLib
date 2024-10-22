@@ -1,0 +1,27 @@
+################################ Manual to Start Everything: #####################################
+0.a make sure docker daemon is running! Else do
+
+>> sudo systemctl start docker
+0.b build the Docker
+
+>> docker build monasynthlib
+
+1.Run the Docker container in interactive mode:
+
+>>docker run -it -p 8000:8000 --rm MonaSynthLib
+
+2.Start the audio streaming by running the script INSIDE(!) the container:
+
+>>/usr/src/app/setup_audio_stream.sh
+
+3.Start the Haskell REPL to work interactively (also inside the container):
+
+>>cabal v2-repl
+
+4. open a browser on local machine listening to the right port
+
+http://localhost:8000/stream
+
+5. start experimenting inside the Container
+ghci>> play
+
