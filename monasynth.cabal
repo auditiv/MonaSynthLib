@@ -66,12 +66,7 @@ library
 executable monasynth
     import:           warnings
     main-is:          MonaSynthLib.hs
-    --MonaSynthEDSL.hs
-    -- SimpleSineGPT.hs
-    --JaimesTestSynthMultiThreaded.hs
-    --JaimesTestSynthLazyVectorizedChannels.hs
-    -- other-modules:
-    -- other-extensions:
+ 
     build-depends:   
       base (>=3 && <5),
       haskell-say ^>= 1.0.0.0,
