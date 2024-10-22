@@ -50,6 +50,30 @@ This is a functional reactive programming framework that works inside the `cabal
 
 It provides a thread map for inserting generators inside of it
 and outpurring sound simulataneously. Bellow a little session is provided on how it works.
-![Description of the image](howtomonallvsa.png)
+
+### Example GHCi Session
+
+```haskell
+ghci> forking 2 (playMono $ monoGen Saw $ play "A4")
+Adding new thread ID.
+Try a new Key, this one already exists.
+
+ghci> forking 42 (playMono $ monoGen Saw $ play "A4")
+Forked new thread ID.
+Forked thread with GenId 42
+
+ghci> showSess
+[(2,ThreadId 102),(42,ThreadId 203)]
+
+ghci> kill 2
+Killing thread with ID: ThreadId 102
+
+ghci> kill 3
+GenId not found in session.
+
+ghci> killAll
+
+
+
 
 
